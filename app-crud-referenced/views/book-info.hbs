@@ -1,0 +1,38 @@
+<h1>{{book.title}}</h1>
+
+<h2>About the book</h2>
+<p>{{book.text}}</p>
+
+<h2>About the author</h2>
+{{#each book.author}}
+    <img src="{{pictureUrl}}" style="float:left; width: 100px; margin-right: 20px">
+    <p>Name: {{name}} {{lastName}} (from {{nationality}})</p>
+{{/each}}
+
+
+<div style="clear:both"></div>
+
+
+<h2>Other users constructive reviews</h2>
+{{#each book.reviews}}
+<div class="review-item">
+  <p>{{this.comments}}</p>
+  <span>{{this.user}}</span>
+</div>
+{{/each}}
+
+
+<h2>Create a review! yay!</h2>
+<form action="/reviews/add?book_id={{book._id}}" method="post" class="rev">
+  <label for="">User:</label>
+  <input type="text" name="user">
+
+  <label for="">Review:</label>
+  <textarea type="text" name="comments"></textarea>
+
+  <button type="submit">ADD</button>
+</form>
+
+
+<a href="/books">go back</a>
+

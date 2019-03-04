@@ -1,0 +1,9 @@
+<h1>Books</h1>
+
+{{#each books}}
+  <p>
+    <a href="/books/details/{{_id}}">{{title}}</a>
+    <a href="/books/edit?book_id={{this._id}}" class="edit-button">EDIT</a>
+  </p>
+
+{{/each}}
